@@ -1,12 +1,4 @@
-<tr>
-  <td>New Product Name</td>
-  <td>New Category</td>
-  <td>Quantity</td>
-  <td>Price</td>
-</tr>
-
-
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -14,10 +6,12 @@
   <title>Pharmacy Inventory Dashboard</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 text-gray-800">
-  <div class="container mx-auto px-4 py-8">
-    <h1 class="text-3xl font-bold mb-6 text-center">🧪 Pharmacy Inventory Dashboard</h1>
-    
+<body class="bg-gray-100 text-gray-800 p-6">
+
+  <h1 class="text-3xl font-bold text-center mb-2">Welcome to ProLife Pharmacy!</h1>
+  <p class="text-center mb-6">Your IVF, Cryogenic, and Diagnostics Supply Partner.</p>
+
+  <div class="container mx-auto px-4">
     <table class="min-w-full bg-white rounded-lg shadow-md overflow-hidden">
       <thead>
         <tr class="bg-blue-500 text-white">
@@ -27,27 +21,17 @@
           <th class="py-3 px-4 text-left">Price</th>
         </tr>
       </thead>
-      <tbody>
-        <tr class="border-b">
-          <td class="py-3 px-4">IVF Injection X</td>
-          <td class="py-3 px-4">IVF</td>
-          <td class="py-3 px-4">20</td>
-          <td class="py-3 px-4">₹1,200</td>
-        </tr>
-        <tr class="border-b bg-gray-50">
-          <td class="py-3 px-4">Liquid Nitrogen Container</td>
-          <td class="py-3 px-4">Cryogenic</td>
-          <td class="py-3 px-4">5</td>
-          <td class="py-3 px-4">₹15,000</td>
-        </tr>
-        <tr class="border-b">
-          <td class="py-3 px-4">Glucose Monitor Kit</td>
-          <td class="py-3 px-4">Diagnostics</td>
-          <td class="py-3 px-4">10</td>
-          <td class="py-3 px-4">₹850</td>
-        </tr>
+      <tbody id="table-body">
+        <!-- Dynamic content goes here -->
       </tbody>
     </table>
   </div>
+
+  <!-- JavaScript Files -->
+  <script src="inventory.js"></script>
+  <script>
+    renderInventory(); // ✅ This is required to show the data
+  </script>
+
 </body>
 </html>
