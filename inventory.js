@@ -1,25 +1,32 @@
 const inventory = {
-  "IVF Products": [
-    { name: "IVF Kit A", stock: 20 },
-    { name: "Hormone Injection", stock: 12 }
+  IVF: [
+    { name: "IVF Injection X", stock: 20, price: "₹1,200" }
   ],
-  "Cryogenic Items": [
-    { name: "LN2 Storage Tank", stock: 5 },
-    { name: "Cryo Vials", stock: 200 }
+  Cryogenic: [
+    { name: "Liquid Nitrogen Container", stock: 5, price: "₹15,000" }
   ],
-  "Diagnostics": [
-    { name: "Blood Test Kit", stock: 34 },
-    { name: "Glucose Monitor", stock: 10 }
-  ],
-  "Tablets": [
-    { name: "Paracetamol 500mg", stock: 100 },
-    { name: "Azithromycin", stock: 50 }
-  ],
-  "Syrups": [
-    { name: "Cough Syrup", stock: 40 }
-  ],
-  "Injections": [
-    { name: "Insulin", stock: 25 },
-    { name: "Vitamin B12 Injection", stock: 15 }
+  Diagnostics: [
+    { name: "Glucose Monitor Kit", stock: 10, price: "₹850" }
   ]
 };
+
+function renderInventory() {
+  const tableBody = document.getElementById("table-body");
+  tableBody.innerHTML = ""; // clear existing rows
+
+  for (const category in inventory) {
+    inventory[category].forEach(item => {
+      const row = document.createElement("tr");
+      row.className = "border-b hover:bg-gray-50";
+
+      row.innerHTML = `
+        <td class="py-2 px-4">${item.name}</td>
+        <td class="py-2 px-4">${category}</td>
+        <td class="py-2 px-4">${item.stock}</td>
+        <td class="py-2 px-4">${item.price}</td>
+      `;
+
+      tableBody.appendChild(row);
+    });
+  }
+}
