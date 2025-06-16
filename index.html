@@ -2,38 +2,44 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pharmacy Inventory Dashboard</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-50 p-6 text-gray-800">
-  <div class="max-w-6xl mx-auto">
-    <h1 class="text-3xl font-bold mb-6 text-center">Pharmacy Inventory</h1>
-
-    <div id="dashboard" class="space-y-8">
-      <!-- Categories and products will be inserted here -->
-    </div>
+<body class="bg-gray-100 text-gray-800">
+  <div class="container mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold mb-6 text-center">🧪 Pharmacy Inventory Dashboard</h1>
+    
+    <table class="min-w-full bg-white rounded-lg shadow-md overflow-hidden">
+      <thead>
+        <tr class="bg-blue-500 text-white">
+          <th class="py-3 px-4 text-left">Product</th>
+          <th class="py-3 px-4 text-left">Category</th>
+          <th class="py-3 px-4 text-left">Stock</th>
+          <th class="py-3 px-4 text-left">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-b">
+          <td class="py-3 px-4">IVF Injection X</td>
+          <td class="py-3 px-4">IVF</td>
+          <td class="py-3 px-4">20</td>
+          <td class="py-3 px-4">₹1,200</td>
+        </tr>
+        <tr class="border-b bg-gray-50">
+          <td class="py-3 px-4">Liquid Nitrogen Container</td>
+          <td class="py-3 px-4">Cryogenic</td>
+          <td class="py-3 px-4">5</td>
+          <td class="py-3 px-4">₹15,000</td>
+        </tr>
+        <tr class="border-b">
+          <td class="py-3 px-4">Glucose Monitor Kit</td>
+          <td class="py-3 px-4">Diagnostics</td>
+          <td class="py-3 px-4">10</td>
+          <td class="py-3 px-4">₹850</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-
-  <script src="inventory.js"></script>
-  <script>
-    const dashboard = document.getElementById("dashboard");
-
-    Object.entries(inventory).forEach(([category, items]) => {
-      const section = document.createElement("div");
-      section.innerHTML = `
-        <h2 class="text-2xl font-semibold mb-4 border-b pb-2">${category}</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          ${items.map(item => `
-            <div class="bg-white rounded-xl shadow p-4">
-              <h3 class="text-lg font-medium">${item.name}</h3>
-              <p class="text-sm text-gray-600">Stock: <strong>${item.stock}</strong></p>
-            </div>
-          `).join("")}
-        </div>
-      `;
-      dashboard.appendChild(section);
-    });
-  </script>
 </body>
 </html>
